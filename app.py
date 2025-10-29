@@ -1097,4 +1097,21 @@ if __name__ == '__main__':
     
     app.run(debug=True, port=5000)
 
+    if _name_ == '_main_':
+    # Get port from environment variable (required for deployment)
+    port = int(os.environ.get('PORT', 5000))
     
+    # Get host from environment (0.0.0.0 for production, 127.0.0.1 for local)
+    host = os.environ.get('HOST', '0.0.0.0')
+    
+    # Debug mode from environment
+    debug = os.environ.get('FLASK_DEBUG', 'False') == 'True'
+    
+    print("=" * 60)
+    print("🚀 Resume Builder Server")
+    print("=" * 60)
+    print(f"Environment: {'Development' if debug else 'Production'}")
+    print(f"Host: {host}")
+    print(f"Port: {port}")
+    print(f"Debug: {debug}")
+    print("=" * 60)
